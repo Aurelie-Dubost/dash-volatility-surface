@@ -19,7 +19,7 @@ from data_fetcher import get_time_delta, get_raw_data, get_filtered_data
 # Setup app
 app = dash.Dash(
     __name__,
-    url_base_pathname='/dash/gallery/volatility-surface')
+    url_base_pathname='/dash/gallery/volatility-surface/')
 server = app.server
 CORS(server)
 
