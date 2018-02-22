@@ -19,7 +19,7 @@ from data_fetcher import get_time_delta, get_raw_data, get_filtered_data
 # Setup app
 app = dash.Dash(
     __name__,
-    url_base_pathname='/dash/gallery/volatility-surface/')
+    url_base_pathname='/dash/gallery/volatility-surface')
 server = app.server
 CORS(server)
 
@@ -34,7 +34,7 @@ if 'DYNO' in os.environ:
         'external_url': 'https://cdn.rawgit.com/chriddyp/ca0d8f02a1659981a0ea7f013a378bbd/raw/e79f3f789517deec58f41251f7dbb6bee72c44ab/plotly_ga.js'
     })
 
-    app.config.routes_pathname_prefix = '/dash/gallery/volatility-surface/'
+    app.config.routes_pathname_prefix = '/dash/gallery/volatility-surface'
     app.config.requests_pathname_prefix = 'https://dash-volatility-surface.herokuapp.com/dash/gallery/volatility-surface/'
 
 
