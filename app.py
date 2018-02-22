@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 import plotly.plotly as py
 import flask
+from flask_cors import CORS
 import dash
 from dash.dependencies import Input, Output, State
 import dash_core_components as dcc
@@ -20,6 +21,7 @@ app = dash.Dash(
     __name__,
     url_base_pathname='/dash/gallery/volatility-surface')
 server = app.server
+CORS(server)
 
 external_css = ["https://fonts.googleapis.com/css?family=Overpass:300,300i",
                 "https://cdn.rawgit.com/plotly/dash-app-stylesheets/dab6f937fd5548cebf4c6dc7e93a10ac438f5efb/dash-technical-charting.css"]
