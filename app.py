@@ -6,7 +6,6 @@ import numpy as np
 import pandas as pd
 import plotly.plotly as py
 import flask
-from flask_cors import CORS
 import dash
 from dash.dependencies import Input, Output, State
 import dash_core_components as dcc
@@ -17,11 +16,8 @@ from data_fetcher import get_time_delta, get_raw_data, get_filtered_data
 
 
 # Setup app
-app = dash.Dash(
-    __name__,
-    url_base_pathname='/dash/gallery/volatility-surface')
+app = dash.Dash(__name__)
 server = app.server
-CORS(server)
 
 external_css = ["https://fonts.googleapis.com/css?family=Overpass:300,300i",
                 "https://cdn.rawgit.com/plotly/dash-app-stylesheets/dab6f937fd5548cebf4c6dc7e93a10ac438f5efb/dash-technical-charting.css"]
@@ -33,10 +29,6 @@ if 'DYNO' in os.environ:
     app.scripts.append_script({
         'external_url': 'https://cdn.rawgit.com/chriddyp/ca0d8f02a1659981a0ea7f013a378bbd/raw/e79f3f789517deec58f41251f7dbb6bee72c44ab/plotly_ga.js'
     })
-
-    app.config.routes_pathname_prefix = '/dash/gallery/volatility-surface'
-    app.config.requests_pathname_prefix = 'https://dash-volatility-surface.herokuapp.com/dash/gallery/volatility-surface/'
-
 
 # Tickers
 tickers = [dict(label=str(ticker), value=str(ticker))
